@@ -1,0 +1,31 @@
+{
+  "id": "ep-flint-local",
+  "name": "Flint local",
+  "baseUrl": "http://127.0.0.1:8004/v1",
+  "apiKey": "local",
+  "model": "flint",
+  "models": ["flint"],
+  "api": "openai-compatible",
+  "idleTimeoutMs": 300000,
+  "compat": {
+    "echoReasoning": true,
+    "vision": false,
+    "useMaxCompletionTokens": false
+  },
+  "bodyExtras": {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0
+  },
+  "modelProfiles": [
+    {
+      "id": "flint",
+      "name": "Flint NVFP4",
+      "vision": false,
+      "echoReasoning": true,
+      "maxTokens": 32768,
+      "contextWindow": 262144
+    }
+  ]
+}
