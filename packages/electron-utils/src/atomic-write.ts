@@ -164,7 +164,11 @@ export async function atomicWriteVia(
  * sleeps block the caller, which is acceptable for a few KB under a transient
  * Windows lock.
  */
-export function writeJsonAtomic(filePath: string, value: unknown): void {
+export function writeJsonAtomic(
+  filePath: string,
+  value: unknown,
+  options: { mode?: number } = {},
+): void {
   mkdirSync(dirname(filePath), { recursive: true })
   const json = JSON.stringify(value, null, 2)
   const tmp = tempPathBeside(filePath)
@@ -176,7 +180,7 @@ export function writeJsonAtomic(filePath: string, value: unknown): void {
     }
   }
   try {
-    writeFileSync(tmp, json, { encoding: 'utf8', flag: 'wx' })
+    writeFileSync(tmp, json, { encoding: 'utf8', flag: 'wx', mode: options.mode })
     syncFileBestEffortSync(tmp)
     for (let attempt = 0; ; attempt += 1) {
       try {
@@ -189,7 +193,7 @@ export function writeJsonAtomic(filePath: string, value: unknown): void {
     }
   } catch (error) {
     if (isRetryableRename(error)) {
-      writeFileSync(filePath, json, 'utf8')
+      writeFileSync(filePath, json, { encoding: 'utf8', mode: options.mode })
       removeTemp()
       return
     }

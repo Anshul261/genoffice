@@ -54,6 +54,18 @@ IP address and transport metadata, and may use them for coarse geolocation and
 security or spam-abuse processing. GenOffice does not add an IP address to the
 event payload.
 
+## Other network requests
+
+These are separate from analytics, and the analytics setting does not affect them.
+
+- **Update checks.** Official builds check the update feed for a new version, and the request
+  carries a random per-install ID. Turn this off in Settings.
+- **Spell check dictionary.** While spell check is on, the app may download a dictionary from a
+  Google CDN. Turn this off under **Settings → General → Spell check**.
+- **Web and image search.** When the AI searches, the query goes to your selected search provider.
+  With no key configured, it goes to Parallel's free endpoint or to DuckDuckGo, even if your AI
+  model runs locally. Turn this off under **Settings → AI Media & Search → Web search**.
+
 ## Data not collected by analytics
 
 GenOffice analytics never sends:

@@ -4458,7 +4458,7 @@ export function registerAiIpc(): void {
     // file and clobber a saved (half-configured) BYOK selection.
     if ((stored.provider ?? 'genspark') === 'genspark' && stored.gskToolsEnabled === false) {
       stored.gskToolsEnabled = true
-      writeJsonAtomic(SETTINGS_PATH(), stored)
+      writeJsonAtomic(SETTINGS_PATH(), stored, { mode: 0o600 })
     }
     const settings = resolveAiSettings(stored, defaultAiSettings())
     // a stored BYOK provider is honored when usable; half-filled configs fall back to genspark
@@ -4493,7 +4493,7 @@ export function registerAiIpc(): void {
       console.warn('[ai] rejected invalid ai:set-settings payload')
       return
     }
-    writeJsonAtomic(SETTINGS_PATH(), sanitized)
+    writeJsonAtomic(SETTINGS_PATH(), sanitized, { mode: 0o600 })
     broadcastAiSettingsChanged()
   })
 

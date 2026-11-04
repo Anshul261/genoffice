@@ -255,6 +255,8 @@ export interface AiSearchProviderMeta {
 export interface AiSearchSettings {
   provider: AiSearchProviderId
   providers: Record<Exclude<AiSearchProviderId, 'genspark'>, { apiKey: string }>
+  /** false turns web and image search off entirely; absent means on */
+  enabled?: boolean
 }
 
 export interface AiSettings {

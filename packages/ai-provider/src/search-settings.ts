@@ -56,7 +56,16 @@ export function resolveAiSearchSettings(
     const key = stored.providers?.[id]?.apiKey
     if (typeof key === 'string') providers[id] = { apiKey: key.trim() }
   }
-  return { provider: stored.provider ?? defaults.provider, providers }
+  return {
+    provider: stored.provider ?? defaults.provider,
+    providers,
+    ...(stored.enabled === false ? { enabled: false } : {}),
+  }
+}
+
+/** false only on an explicit opt-out; absent means on. */
+export function searchEnabled(settings: Pick<AiSettings, 'search'>): boolean {
+  return settings.search?.enabled !== false
 }
 
 /**

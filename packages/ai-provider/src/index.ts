@@ -78,6 +78,7 @@ export {
   activeSearchProvider,
   defaultAiSearchSettings,
   resolveAiSearchSettings,
+  searchEnabled,
 } from './search-settings'
 export {
   analyzeMediaWithProvider,

@@ -120,6 +120,11 @@ describe('parseGskOutput', () => {
 describe('gskChildEnv', () => {
   afterEach(() => setGskProxyUrl(''))
 
+  it('always disables the CLI self-update, whatever the parent environment says', () => {
+    expect(gskChildEnv({ PATH: '/bin' }).GSK_NO_AUTO_UPDATE).toBe('1')
+    expect(gskChildEnv({ PATH: '/bin', GSK_NO_AUTO_UPDATE: '0' }).GSK_NO_AUTO_UPDATE).toBe('1')
+  })
+
   it('sets ELECTRON_RUN_AS_NODE and no proxy vars when no proxy is known', () => {
     const env = gskChildEnv({ PATH: '/bin' })
     expect(env.ELECTRON_RUN_AS_NODE).toBe('1')

@@ -10,10 +10,11 @@
 import {
   activeSearchProvider,
   cloudToolsEnabled,
+  searchEnabled,
   type AiSearchProviderId,
   type AiSettings,
 } from '@genoffice/ai-provider'
-import { imageSearch, webSearch, type SearchOptions } from './index'
+import { imageSearch, webSearch, type SearchOptions, type WebSearchResponse } from './index'
 import { readAiSettingsFile } from './media-tools'
 
 export function searchOptionsFromSettings(settings: AiSettings): SearchOptions {
@@ -30,12 +31,28 @@ export function searchOptionsFromSettings(settings: AiSettings): SearchOptions {
     : { useGsk: false, serperKey: key }
 }
 
-export function webSearchTool(settingsPath: string, query: string, maxResults = 6) {
-  return webSearch(query, maxResults, searchOptionsFromSettings(readAiSettingsFile(settingsPath)))
+/** Told to the model, so it stops and informs the user instead of retrying. */
+export const SEARCH_OFF_ERROR =
+  'search is turned off in Settings. Do not retry. Tell the user that web and image search are off.'
+
+/**
+ * The switch is enforced here rather than in the renderers, so no app and no
+ * keyless fallback (Parallel, DuckDuckGo) can send a query while it is off.
+ */
+export async function webSearchTool(
+  settingsPath: string,
+  query: string,
+  maxResults = 6,
+): Promise<WebSearchResponse> {
+  const settings = readAiSettingsFile(settingsPath)
+  if (!searchEnabled(settings)) return { results: [], method: 'error', error: SEARCH_OFF_ERROR }
+  return webSearch(query, maxResults, searchOptionsFromSettings(settings))
 }
 
-export function imageSearchTool(settingsPath: string, query: string, maxResults = 8) {
-  return imageSearch(query, maxResults, searchOptionsFromSettings(readAiSettingsFile(settingsPath)))
+export async function imageSearchTool(settingsPath: string, query: string, maxResults = 8) {
+  const settings = readAiSettingsFile(settingsPath)
+  if (!searchEnabled(settings)) return { images: [], method: 'error', error: SEARCH_OFF_ERROR }
+  return imageSearch(query, maxResults, searchOptionsFromSettings(settings))
 }
 
 /** settings-UI test: the selected backend (keyed or free) must answer one minimal query. */

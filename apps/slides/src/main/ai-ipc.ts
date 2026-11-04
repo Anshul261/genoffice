@@ -161,7 +161,7 @@ export function registerAiIpc(): void {
       console.warn('[ai] rejected invalid ai:set-settings payload')
       return
     }
-    writeJsonAtomic(AI_SETTINGS_PATH(), sanitized)
+    writeJsonAtomic(AI_SETTINGS_PATH(), sanitized, { mode: 0o600 })
     for (const wc of webContents.getAllWebContents())
       if (!wc.isDestroyed()) wc.send('ai:settings-changed')
   })

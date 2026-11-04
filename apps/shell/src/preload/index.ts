@@ -518,6 +518,15 @@ const homeApi: HomeApi = {
   async openMcpLogFile() {
     await ipcRenderer.invoke(HOME_CHANNELS.openMcpLogFile)
   },
+  async getSpellcheckEnabled() {
+    const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.getSpellcheckEnabled)
+    return result !== false
+  },
+  async setSpellcheckEnabled(enabled) {
+    if (typeof enabled !== 'boolean') throw new Error('Invalid spell check setting.')
+    const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.setSpellcheckEnabled, enabled)
+    return result === true
+  },
   async getAnalyticsEnabled() {
     const result: unknown = await ipcRenderer.invoke(HOME_CHANNELS.getAnalyticsEnabled)
     return result !== false

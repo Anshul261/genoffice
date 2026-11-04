@@ -1,5 +1,6 @@
 import { execSync, spawn } from 'node:child_process'
 import {
+  chmodSync,
   cpSync,
   existsSync,
   mkdirSync,
@@ -712,6 +713,39 @@ let cachedAnalyticsEnabled: boolean | null = null
 function analyticsEnabled(): boolean {
   cachedAnalyticsEnabled ??= analyticsEnabledFrom(readAppSettings(APP_SETTINGS_PATH()))
   return cachedAnalyticsEnabled
+}
+
+/** Saved API keys live in ai-settings.json: files from older versions still have default modes. */
+function tightenAiSettingsFile(): void {
+  try {
+    chmodSync(join(app.getPath('userData'), 'ai-settings.json'), 0o600)
+  } catch {
+    // not created yet, or a filesystem without POSIX modes
+  }
+}
+
+// ---- spell check ----
+// Chromium fetches its Hunspell dictionary from a Google CDN. Disabling the checker alone does not
+// stop that fetch, so while off the language list is cleared and the download URL points at a closed
+// local port. Both are no-ops on macOS, which uses the system checker. Turning spell check back on
+// restores the languages and the download URL at the next launch.
+const SPELLCHECK_ENABLED_KEY = 'spellcheckEnabled'
+
+function spellcheckEnabled(): boolean {
+  return readAppSettings(APP_SETTINGS_PATH())[SPELLCHECK_ENABLED_KEY] !== false
+}
+
+function applySpellcheckPreference(): void {
+  try {
+    const enabled = spellcheckEnabled()
+    if (!enabled) {
+      session.defaultSession.setSpellCheckerDictionaryDownloadURL('http://127.0.0.1:1/')
+      session.defaultSession.setSpellCheckerLanguages([])
+    }
+    session.defaultSession.setSpellCheckerEnabled(enabled)
+  } catch {
+    // spell check must never block startup
+  }
 }
 
 function resolveAnalyticsKeys(): AnalyticsKeys | null {
@@ -5372,6 +5406,19 @@ function registerHomeIpc(): void {
     if (logPath) shell.showItemInFolder(logPath)
   })
 
+  ipcMain.handle(HOME_CHANNELS.getSpellcheckEnabled, (): boolean => spellcheckEnabled())
+
+  ipcMain.handle(HOME_CHANNELS.setSpellcheckEnabled, (_event, enabled: unknown): boolean => {
+    if (typeof enabled !== 'boolean') return false
+    try {
+      writeAppSettings(APP_SETTINGS_PATH(), { [SPELLCHECK_ENABLED_KEY]: enabled })
+    } catch {
+      return false
+    }
+    applySpellcheckPreference()
+    return true
+  })
+
   ipcMain.handle(HOME_CHANNELS.getAnalyticsEnabled, (): boolean => analyticsEnabled())
 
   ipcMain.handle(HOME_CHANNELS.setAnalyticsEnabled, (_event, enabled: unknown): boolean => {
@@ -7086,6 +7133,9 @@ async function runHeadlessExportEntry(
 }
 
 app.whenReady().then(async () => {
+  // before any window loads: a loaded page starts the dictionary download
+  applySpellcheckPreference()
+  tightenAiSettingsFile()
   // first scan waits for the windows to come up; later ones follow folder changes
   setTimeout(() => ensureFileIndexer()?.refresh(), 4000)
   installRendererProtocol({

@@ -5,6 +5,7 @@ import {
   readdirSync,
   renameSync,
   rmSync,
+  statSync,
   writeFileSync,
 } from 'node:fs'
 import { open, rename, writeFile, copyFile } from 'node:fs/promises'
@@ -363,5 +364,26 @@ describe('writeJsonAtomic', () => {
     })
     writeJsonAtomic(target, { ok: true })
     expect(JSON.parse(readFileSync(target, 'utf8'))).toEqual({ ok: true })
+  })
+})
+
+describe('writeJsonAtomic file mode', () => {
+  it.skipIf(process.platform === 'win32')(
+    'applies the requested mode, also over an existing file',
+    () => {
+      const dir = mkdtempSync(join(tmpdir(), 'atomic-mode-'))
+      const path = join(dir, 'ai-settings.json')
+      writeFileSync(path, '{}', { mode: 0o644 })
+      writeJsonAtomic(path, { apiKey: 'secret' }, { mode: 0o600 })
+      expect(statSync(path).mode & 0o777).toBe(0o600)
+      expect(JSON.parse(readFileSync(path, 'utf8'))).toEqual({ apiKey: 'secret' })
+    },
+  )
+
+  it('still writes with no options', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'atomic-mode-'))
+    const path = join(dir, 'plain.json')
+    writeJsonAtomic(path, { a: 1 })
+    expect(JSON.parse(readFileSync(path, 'utf8'))).toEqual({ a: 1 })
   })
 })

@@ -4197,7 +4197,7 @@ export function registerSheetsAiIpc(): void {
   ipcMain.handle(IPC_CHANNELS.aiSetSettings, async (event, input: unknown) => {
     sessionFor(event)
     const settings = aiSettingsInputSchema.parse(input)
-    writeJsonAtomic(SETTINGS_PATH(), settings)
+    writeJsonAtomic(SETTINGS_PATH(), settings, { mode: 0o600 })
     for (const wc of webContents.getAllWebContents())
       if (!wc.isDestroyed()) wc.send(IPC_CHANNELS.aiSettingsChanged)
   })

@@ -217,6 +217,10 @@ export const strings = {
     setAnalytics: '发送匿名使用统计',
     setAnalyticsDesc:
       '该功能默认开启，可随时在“设置 → 常规”中关闭。使用 Google Analytics 4；Google 会接收您的公网 IP 地址和传输元数据，但绝不收集文档内容或文件名。',
+    setWebSearch: '联网搜索',
+    setWebSearchDesc: '允许 AI 搜索网页和图片。关闭后，任何搜索内容都不会发送给搜索服务。',
+    setSpellcheck: '拼写检查',
+    setSpellcheckDesc: '标出拼写错误的单词。开启时可能会从 Google 下载词典。',
     setSearchRerank: 'Jev 搜索重排',
     setSearchRerankDesc:
       '把本机搜索的前 20 条命中片段发给 TypeSafe 的 Jev 模型，按相关性重新排序。默认关闭；开启后命中片段会离开本机。',
@@ -738,6 +742,12 @@ export const strings = {
     setAnalytics: 'Send anonymous usage statistics',
     setAnalyticsDesc:
       'Enabled by default and can be turned off anytime in Settings → General. Uses Google Analytics 4; Google receives your public IP address and transport metadata, but document contents and file names are never collected.',
+    setWebSearch: 'Web search',
+    setWebSearchDesc:
+      'Lets the AI search the web and images. When off, no search text is sent to any search service.',
+    setSpellcheck: 'Spell check',
+    setSpellcheckDesc:
+      'Underlines misspelled words. While on, a dictionary may be downloaded from Google.',
     setSearchRerank: 'Jev search reranking',
     setSearchRerankDesc:
       "Sends the top 20 local hits' excerpts to TypeSafe's Jev model and reorders them by relevance. Off by default; when on, excerpts leave this device.",
@@ -1274,6 +1284,12 @@ export const strings = {
     setAnalytics: 'Gửi số liệu thống kê sử dụng ẩn danh',
     setAnalyticsDesc:
       'Được bật theo mặc định và có thể tắt bất cứ lúc nào trong Cài đặt → Chung. Sử dụng Google Analytics 4; Google nhận địa chỉ IP công khai và siêu dữ liệu truyền tải của bạn, nhưng nội dung tài liệu và tên tệp không bao giờ bị thu thập.',
+    setWebSearch: 'Tìm kiếm web',
+    setWebSearchDesc:
+      'Cho phép AI tìm kiếm web và hình ảnh. Khi tắt, không có nội dung tìm kiếm nào được gửi đến dịch vụ tìm kiếm.',
+    setSpellcheck: 'Kiểm tra chính tả',
+    setSpellcheckDesc:
+      'Gạch chân các từ sai chính tả. Khi bật, từ điển có thể được tải xuống từ Google.',
     setSearchRerank: 'Sắp xếp lại kết quả tìm kiếm Jev',
     setSearchRerankDesc:
       'Gửi đoạn trích của 20 kết quả hàng đầu cục bộ tới mô hình Jev của TypeSafe và sắp xếp lại theo mức độ liên quan. Tắt theo mặc định; khi bật, các đoạn trích sẽ được gửi ra ngoài thiết bị này.',
@@ -1815,6 +1831,12 @@ export const strings = {
     setAnalytics: 'Anonim kullanım istatistiklerini gönder',
     setAnalyticsDesc:
       'Varsayılan olarak açıktır ve Ayarlar → Genel’den istediğiniz zaman kapatılabilir. Google Analytics 4 kullanır; Google genel IP adresinizi ve aktarım meta verilerini alır, ancak belge içerikleri ve dosya adları hiçbir zaman toplanmaz.',
+    setWebSearch: 'Web araması',
+    setWebSearchDesc:
+      'Yapay zekanın web ve görsel aramasına izin verir. Kapalıyken hiçbir arama metni arama hizmetlerine gönderilmez.',
+    setSpellcheck: 'Yazım denetimi',
+    setSpellcheckDesc:
+      'Yanlış yazılan sözcüklerin altını çizer. Açıkken Google üzerinden bir sözlük indirilebilir.',
     setSearchRerank: 'Jev arama yeniden sıralaması',
     setSearchRerankDesc:
       'En iyi 20 yerel sonucun alıntılarını TypeSafe’in Jev modeline gönderir ve ilgililiğe göre yeniden sıralar. Varsayılan olarak kapalıdır; açıkken alıntılar bu cihazdan dışarı çıkar.',
@@ -2368,6 +2390,12 @@ export const strings = {
     setAnalytics: '匿名の使用状況統計を送信',
     setAnalyticsDesc:
       '既定で有効です。設定 → 一般でいつでも無効にできます。Google Analytics 4 を使用し、Google は公開 IP アドレスと通信メタデータを受け取りますが、文書の内容やファイル名は収集されません。',
+    setWebSearch: 'ウェブ検索',
+    setWebSearchDesc:
+      'AI によるウェブと画像の検索を許可します。オフのときは、検索テキストはどの検索サービスにも送信されません。',
+    setSpellcheck: 'スペルチェック',
+    setSpellcheckDesc:
+      'スペルミスに下線を表示します。オンのときは Google から辞書がダウンロードされる場合があります。',
     setSearchRerank: 'Jev 検索リランク',
     setSearchRerankDesc:
       'ローカル検索の上位 20 件の抜粋を TypeSafe の Jev モデルに送り、関連度で並べ替えます。既定ではオフ。オンにすると抜粋が端末外に送信されます。',
@@ -2915,6 +2943,12 @@ export const strings = {
     setAnalytics: '익명 사용 통계 보내기',
     setAnalyticsDesc:
       '기본적으로 켜져 있으며 설정 → 일반에서 언제든 끌 수 있습니다. Google Analytics 4를 사용하며 Google은 공인 IP 주소와 전송 메타데이터를 수신하지만 문서 내용이나 파일 이름은 수집하지 않습니다.',
+    setWebSearch: '웹 검색',
+    setWebSearchDesc:
+      'AI가 웹과 이미지를 검색할 수 있게 합니다. 끄면 검색어가 어떤 검색 서비스로도 전송되지 않습니다.',
+    setSpellcheck: '맞춤법 검사',
+    setSpellcheckDesc:
+      '맞춤법이 틀린 단어에 밑줄을 표시합니다. 켜져 있으면 Google에서 사전을 다운로드할 수 있습니다.',
     setSearchRerank: 'Jev 검색 재정렬',
     setSearchRerankDesc:
       '로컬 검색 상위 20개 결과의 발췌문을 TypeSafe의 Jev 모델로 보내 관련도 순으로 재정렬합니다. 기본은 꺼짐이며, 켜면 발췌문이 기기 밖으로 전송됩니다.',
@@ -3465,6 +3499,12 @@ export const strings = {
     setAnalytics: "Envoyer des statistiques d'utilisation anonymes",
     setAnalyticsDesc:
       'Activé par défaut et désactivable dans Paramètres → Général. Utilise Google Analytics 4 ; Google reçoit votre adresse IP publique et les métadonnées de transport, mais jamais le contenu des documents ni les noms de fichiers.',
+    setWebSearch: 'Recherche web',
+    setWebSearchDesc:
+      'Permet à l’IA de rechercher sur le web et des images. Désactivée, aucun texte de recherche n’est envoyé à un service de recherche.',
+    setSpellcheck: 'Vérification orthographique',
+    setSpellcheckDesc:
+      'Souligne les mots mal orthographiés. Activée, un dictionnaire peut être téléchargé depuis Google.',
     setSearchRerank: 'Reclassement Jev',
     setSearchRerankDesc:
       'Envoie les extraits des 20 premiers résultats locaux au modèle Jev de TypeSafe et les réordonne par pertinence. Désactivé par défaut ; une fois activé, les extraits quittent cet appareil.',
@@ -4029,6 +4069,12 @@ export const strings = {
     setAnalytics: 'Anonyme Nutzungsstatistiken senden',
     setAnalyticsDesc:
       'Standardmäßig aktiviert und unter Einstellungen → Allgemein deaktivierbar. Verwendet Google Analytics 4; Google erhält Ihre öffentliche IP-Adresse und Transportmetadaten, aber keine Dokumentinhalte oder Dateinamen.',
+    setWebSearch: 'Websuche',
+    setWebSearchDesc:
+      'Erlaubt der KI, im Web und nach Bildern zu suchen. Wenn deaktiviert, wird kein Suchtext an Suchdienste gesendet.',
+    setSpellcheck: 'Rechtschreibprüfung',
+    setSpellcheckDesc:
+      'Unterstreicht falsch geschriebene Wörter. Wenn aktiviert, kann ein Wörterbuch von Google heruntergeladen werden.',
     setSearchRerank: 'Jev-Neusortierung',
     setSearchRerankDesc:
       'Sendet die Auszüge der 20 besten lokalen Treffer an das Jev-Modell von TypeSafe und sortiert sie nach Relevanz. Standardmäßig aus; wenn aktiv, verlassen Auszüge dieses Gerät.',
@@ -4587,6 +4633,12 @@ export const strings = {
     setAnalytics: 'Enviar estadísticas de uso anónimas',
     setAnalyticsDesc:
       'Activado de forma predeterminada y desactivable en Configuración → General. Usa Google Analytics 4; Google recibe tu IP pública y metadatos de transporte, pero nunca el contenido de documentos ni los nombres de archivo.',
+    setWebSearch: 'Búsqueda web',
+    setWebSearchDesc:
+      'Permite que la IA busque en la web e imágenes. Si está desactivada, no se envía texto de búsqueda a ningún servicio de búsqueda.',
+    setSpellcheck: 'Revisión ortográfica',
+    setSpellcheckDesc:
+      'Subraya las palabras mal escritas. Si está activada, puede descargarse un diccionario desde Google.',
     setSearchRerank: 'Reordenación con Jev',
     setSearchRerankDesc:
       'Envía los extractos de los 20 mejores resultados locales al modelo Jev de TypeSafe y los reordena por relevancia. Desactivado por defecto; al activarlo, los extractos salen de este dispositivo.',
@@ -5137,6 +5189,11 @@ export const strings = {
     setAnalytics: 'ส่งสถิติการใช้งานแบบไม่ระบุตัวตน',
     setAnalyticsDesc:
       'เปิดใช้งานเป็นค่าเริ่มต้นและปิดได้ทุกเมื่อใน การตั้งค่า → ทั่วไป ใช้ Google Analytics 4 โดย Google จะได้รับ IP สาธารณะและข้อมูลเมตาการรับส่งข้อมูล แต่จะไม่เก็บเนื้อหาเอกสารหรือชื่อไฟล์',
+    setWebSearch: 'ค้นหาเว็บ',
+    setWebSearchDesc:
+      'อนุญาตให้ AI ค้นหาเว็บและรูปภาพ เมื่อปิด จะไม่มีการส่งข้อความค้นหาไปยังบริการค้นหาใด ๆ',
+    setSpellcheck: 'ตรวจตัวสะกด',
+    setSpellcheckDesc: 'ขีดเส้นใต้คำที่สะกดผิด เมื่อเปิด อาจมีการดาวน์โหลดพจนานุกรมจาก Google',
     setSearchRerank: 'จัดอันดับใหม่ด้วย Jev',
     setSearchRerankDesc:
       'ส่งข้อความตัดตอนของผลลัพธ์ 20 อันดับแรกไปยังโมเดล Jev ของ TypeSafe เพื่อจัดอันดับใหม่ตามความเกี่ยวข้อง ปิดเป็นค่าเริ่มต้น เมื่อเปิด ข้อความตัดตอนจะถูกส่งออกจากอุปกรณ์นี้',
@@ -5680,6 +5737,12 @@ export const strings = {
     setAnalytics: 'Kirim statistik penggunaan anonim',
     setAnalyticsDesc:
       'Aktif secara default dan dapat dimatikan di Pengaturan → Umum. Menggunakan Google Analytics 4; Google menerima IP publik dan metadata transport Anda, tetapi tidak pernah mengumpulkan isi dokumen atau nama file.',
+    setWebSearch: 'Pencarian web',
+    setWebSearchDesc:
+      'Mengizinkan AI mencari di web dan gambar. Saat nonaktif, tidak ada teks pencarian yang dikirim ke layanan pencarian.',
+    setSpellcheck: 'Pemeriksaan ejaan',
+    setSpellcheckDesc:
+      'Menggarisbawahi kata yang salah eja. Saat aktif, kamus mungkin diunduh dari Google.',
     setSearchRerank: 'Peringkat ulang Jev',
     setSearchRerankDesc:
       'Mengirim kutipan 20 hasil lokal teratas ke model Jev dari TypeSafe dan mengurutkannya ulang berdasarkan relevansi. Nonaktif secara bawaan; saat aktif, kutipan keluar dari perangkat ini.',
@@ -6228,6 +6291,12 @@ export const strings = {
     setAnalytics: 'Отправлять анонимную статистику использования',
     setAnalyticsDesc:
       'Включено по умолчанию и отключается в Настройки → Общие. Используется Google Analytics 4; Google получает публичный IP и транспортные метаданные, но не содержимое документов и не имена файлов.',
+    setWebSearch: 'Веб-поиск',
+    setWebSearchDesc:
+      'Позволяет ИИ искать в интернете и находить изображения. Когда отключено, текст запросов не отправляется в поисковые сервисы.',
+    setSpellcheck: 'Проверка орфографии',
+    setSpellcheckDesc:
+      'Подчёркивает слова с ошибками. Когда включено, словарь может загружаться из Google.',
     setSearchRerank: 'Переранжирование Jev',
     setSearchRerankDesc:
       'Отправляет фрагменты 20 лучших локальных результатов модели Jev от TypeSafe и переупорядочивает их по релевантности. По умолчанию выключено; при включении фрагменты покидают это устройство.',
@@ -6776,6 +6845,12 @@ export const strings = {
     setAnalytics: 'إرسال إحصاءات استخدام مجهولة الهوية',
     setAnalyticsDesc:
       'مفعّل افتراضيًا ويمكن إيقافه في الإعدادات ← عام. يستخدم Google Analytics 4؛ تتلقى Google عنوان IP العام وبيانات النقل، ولكن لا يتم جمع محتوى المستندات أو أسماء الملفات.',
+    setWebSearch: 'البحث على الويب',
+    setWebSearchDesc:
+      'يتيح للذكاء الاصطناعي البحث في الويب وعن الصور. عند إيقافه، لا يُرسل أي نص بحث إلى أي خدمة بحث.',
+    setSpellcheck: 'التدقيق الإملائي',
+    setSpellcheckDesc:
+      'يضع خطًا تحت الكلمات الخاطئة إملائيًا. عند تشغيله، قد يتم تنزيل قاموس من Google.',
     setSearchRerank: 'إعادة ترتيب Jev',
     setSearchRerankDesc:
       'يرسل مقتطفات أفضل 20 نتيجة محلية إلى نموذج Jev من TypeSafe ويعيد ترتيبها حسب الصلة. معطّل افتراضيًا؛ عند التفعيل تخرج المقتطفات من هذا الجهاز.',
@@ -7315,6 +7390,12 @@ export const strings = {
     setAnalytics: 'Enviar estatísticas de uso anônimas',
     setAnalyticsDesc:
       'Ativado por padrão e pode ser desativado em Configurações → Geral. Usa o Google Analytics 4; o Google recebe seu IP público e metadados de transporte, mas nunca o conteúdo dos documentos ou nomes de arquivos.',
+    setWebSearch: 'Pesquisa na web',
+    setWebSearchDesc:
+      'Permite que a IA pesquise na web e imagens. Quando desativada, nenhum texto de pesquisa é enviado a serviços de pesquisa.',
+    setSpellcheck: 'Verificação ortográfica',
+    setSpellcheckDesc:
+      'Sublinha palavras com erros. Quando ativada, um dicionário pode ser baixado do Google.',
     setSearchRerank: 'Reordenação com Jev',
     setSearchRerankDesc:
       'Envia os trechos dos 20 melhores resultados locais ao modelo Jev da TypeSafe e os reordena por relevância. Desativado por padrão; quando ativo, os trechos saem deste dispositivo.',
@@ -7862,6 +7943,12 @@ export const strings = {
     setAnalytics: 'Invia statistiche di utilizzo anonime',
     setAnalyticsDesc:
       "Attivo per impostazione predefinita e disattivabile in Impostazioni → Generali. Utilizza Google Analytics 4; Google riceve l'IP pubblico e i metadati di trasporto, ma mai contenuti o nomi dei file.",
+    setWebSearch: 'Ricerca web',
+    setWebSearchDesc:
+      'Consente all’IA di cercare sul web e immagini. Se disattivata, nessun testo di ricerca viene inviato ai servizi di ricerca.',
+    setSpellcheck: 'Controllo ortografico',
+    setSpellcheckDesc:
+      'Sottolinea le parole errate. Se attivo, può essere scaricato un dizionario da Google.',
     setSearchRerank: 'Riordino con Jev',
     setSearchRerankDesc:
       'Invia gli estratti dei 20 migliori risultati locali al modello Jev di TypeSafe e li riordina per pertinenza. Disattivato per impostazione predefinita; se attivo, gli estratti lasciano questo dispositivo.',
@@ -8407,6 +8494,12 @@ export const strings = {
     setAnalytics: 'Wysyłaj anonimowe statystyki użytkowania',
     setAnalyticsDesc:
       'Domyślnie włączone; można wyłączyć w Ustawienia → Ogólne. Korzysta z Google Analytics 4; Google otrzymuje publiczny adres IP i metadane transportowe, ale nigdy treść dokumentów ani nazwy plików.',
+    setWebSearch: 'Wyszukiwanie w sieci',
+    setWebSearchDesc:
+      'Pozwala SI wyszukiwać w sieci i szukać obrazów. Po wyłączeniu żaden tekst wyszukiwania nie jest wysyłany do usług wyszukiwania.',
+    setSpellcheck: 'Sprawdzanie pisowni',
+    setSpellcheckDesc:
+      'Podkreśla błędnie napisane słowa. Po włączeniu słownik może zostać pobrany z Google.',
     setSearchRerank: 'Ponowne sortowanie Jev',
     setSearchRerankDesc:
       'Wysyła fragmenty 20 najlepszych lokalnych wyników do modelu Jev firmy TypeSafe i sortuje je według trafności. Domyślnie wyłączone; po włączeniu fragmenty opuszczają to urządzenie.',
@@ -9163,6 +9256,12 @@ export const strings = {
     setAutoSave: 'Automaticky ukládat všechny dokumenty',
     setAutoSaveDesc:
       'Zapne automatické ukládání ve všech editorech jako výchozí. Pro jednotlivé okno ho lze stále vypnout.',
+    setWebSearch: 'Vyhledávání na webu',
+    setWebSearchDesc:
+      'Umožňuje AI vyhledávat na webu a hledat obrázky. Když je vypnuto, žádný hledaný text se neodesílá vyhledávacím službám.',
+    setSpellcheck: 'Kontrola pravopisu',
+    setSpellcheckDesc:
+      'Podtrhává slova s chybou. Když je zapnuto, může se z Googlu stáhnout slovník.',
     setSearchRerank: 'Přeřazení Jev',
     setSearchRerankDesc:
       'Odešle výňatky 20 nejlepších místních výsledků modelu Jev od TypeSafe a seřadí je podle relevance. Ve výchozím stavu vypnuto; po zapnutí výňatky opouštějí toto zařízení.',
@@ -9487,6 +9586,12 @@ export const strings = {
     setAnalytics: 'Anonieme gebruiksstatistieken verzenden',
     setAnalyticsDesc:
       'Standaard ingeschakeld en uit te schakelen via Instellingen → Algemeen. Gebruikt Google Analytics 4; Google ontvangt uw openbare IP en transportmetadata, maar nooit documentinhoud of bestandsnamen.',
+    setWebSearch: 'Zoeken op het web',
+    setWebSearchDesc:
+      'Laat de AI op het web en naar afbeeldingen zoeken. Indien uit, wordt geen zoektekst naar zoekdiensten verzonden.',
+    setSpellcheck: 'Spellingcontrole',
+    setSpellcheckDesc:
+      'Onderstreept verkeerd gespelde woorden. Indien aan, kan een woordenboek van Google worden gedownload.',
     setSearchRerank: 'Jev-herordening',
     setSearchRerankDesc:
       'Stuurt de fragmenten van de 20 beste lokale resultaten naar het Jev-model van TypeSafe en sorteert ze op relevantie. Standaard uit; indien aan verlaten fragmenten dit apparaat.',
@@ -10030,6 +10135,12 @@ export const strings = {
     setAnalytics: 'Hantar statistik penggunaan tanpa nama',
     setAnalyticsDesc:
       'Diaktifkan secara lalai dan boleh dimatikan di Tetapan → Umum. Menggunakan Google Analytics 4; Google menerima IP awam dan metadata pengangkutan, tetapi tidak pernah kandungan dokumen atau nama fail.',
+    setWebSearch: 'Carian web',
+    setWebSearchDesc:
+      'Membenarkan AI mencari di web dan imej. Apabila dimatikan, tiada teks carian dihantar kepada mana-mana perkhidmatan carian.',
+    setSpellcheck: 'Semakan ejaan',
+    setSpellcheckDesc:
+      'Menggariskan perkataan yang salah eja. Apabila dihidupkan, kamus mungkin dimuat turun daripada Google.',
     setSearchRerank: 'Susunan semula Jev',
     setSearchRerankDesc:
       'Menghantar petikan 20 hasil tempatan teratas ke model Jev TypeSafe dan menyusunnya semula mengikut kaitan. Dimatikan secara lalai; apabila dihidupkan, petikan keluar dari peranti ini.',
@@ -10570,6 +10681,11 @@ export const strings = {
     setAnalytics: 'שליחת נתוני שימוש אנונימיים',
     setAnalyticsDesc:
       'מופעל כברירת מחדל וניתן לכיבוי בהגדרות ← כללי. משתמש ב-Google Analytics 4; Google מקבלת IP ציבורי ומטא-נתוני תעבורה, אך לא תוכן מסמכים או שמות קבצים.',
+    setWebSearch: 'חיפוש באינטרנט',
+    setWebSearchDesc:
+      'מאפשר ל-AI לחפש באינטרנט ולחפש תמונות. כשהאפשרות כבויה, טקסט חיפוש אינו נשלח לאף שירות חיפוש.',
+    setSpellcheck: 'בדיקת איות',
+    setSpellcheckDesc: 'מסמן בקו תחתון מילים שגויות. כשהאפשרות פעילה, ייתכן שמילון יורד מ-Google.',
     setSearchRerank: 'סידור מחדש עם Jev',
     setSearchRerankDesc:
       'שולח את הקטעים של 20 התוצאות המקומיות המובילות למודל Jev של TypeSafe ומסדר אותן מחדש לפי רלוונטיות. כבוי כברירת מחדל; כשמופעל, הקטעים יוצאים מהמכשיר הזה.',
@@ -11102,6 +11218,12 @@ export const strings = {
     setAnalytics: 'गुमनाम उपयोग आँकड़े भेजें',
     setAnalyticsDesc:
       'डिफ़ॉल्ट रूप से चालू; सेटिंग्स → सामान्य में बंद किया जा सकता है। Google Analytics 4 का उपयोग होता है; Google को सार्वजनिक IP और ट्रांसपोर्ट मेटाडेटा मिलता है, लेकिन दस्तावेज़ सामग्री या फ़ाइल नाम नहीं।',
+    setWebSearch: 'वेब खोज',
+    setWebSearchDesc:
+      'AI को वेब और छवियां खोजने देता है। बंद होने पर कोई भी खोज पाठ किसी खोज सेवा को नहीं भेजा जाता।',
+    setSpellcheck: 'वर्तनी जांच',
+    setSpellcheckDesc:
+      'गलत वर्तनी वाले शब्दों को रेखांकित करता है। चालू होने पर Google से शब्दकोश डाउनलोड हो सकता है।',
     setSearchRerank: 'Jev खोज पुनर्क्रमण',
     setSearchRerankDesc:
       'स्थानीय खोज के शीर्ष 20 परिणामों के अंश TypeSafe के Jev मॉडल को भेजता है और उन्हें प्रासंगिकता के अनुसार पुनः क्रमित करता है। डिफ़ॉल्ट रूप से बंद; चालू होने पर अंश इस डिवाइस से बाहर जाते हैं।',
@@ -11632,6 +11754,10 @@ export const strings = {
     setAnalytics: '傳送匿名使用統計',
     setAnalyticsDesc:
       '此功能預設開啟，可隨時在「設定 → 一般」中關閉。使用 Google Analytics 4；Google 會接收您的公開 IP 位址和傳輸中繼資料，但絕不收集文件內容或檔案名稱。',
+    setWebSearch: '網路搜尋',
+    setWebSearchDesc: '允許 AI 搜尋網頁和圖片。關閉後，任何搜尋內容都不會傳送給搜尋服務。',
+    setSpellcheck: '拼字檢查',
+    setSpellcheckDesc: '標示拼錯的單字。開啟時可能會從 Google 下載字典。',
     setSearchRerank: 'Jev 搜尋重排',
     setSearchRerankDesc:
       '將本機搜尋前 20 筆命中片段傳給 TypeSafe 的 Jev 模型，依相關性重新排序。預設關閉；開啟後命中片段會離開本機。',

@@ -440,6 +440,8 @@ export interface HomeApi {
   /** reveal the MCP log file in the file manager (created empty when missing) */
   openMcpLogFile(): Promise<void>
   /** whether anonymous usage statistics are enabled (default true in official builds) */
+  getSpellcheckEnabled(): Promise<boolean>
+  setSpellcheckEnabled(enabled: boolean): Promise<boolean>
   getAnalyticsEnabled(): Promise<boolean>
   /** persist an explicit analytics opt-in or opt-out */
   setAnalyticsEnabled(enabled: boolean): Promise<boolean>
@@ -713,6 +715,8 @@ export const HOME_CHANNELS = {
   getMcpLogs: 'home:get-mcp-logs',
   clearMcpLogs: 'home:clear-mcp-logs',
   openMcpLogFile: 'home:open-mcp-log-file',
+  getSpellcheckEnabled: 'home:get-spellcheck-enabled',
+  setSpellcheckEnabled: 'home:set-spellcheck-enabled',
   getAnalyticsEnabled: 'home:get-analytics-enabled',
   setAnalyticsEnabled: 'home:set-analytics-enabled',
   getAuthorName: 'home:get-author-name',

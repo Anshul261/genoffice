@@ -217,7 +217,13 @@ export { setGskProxyUrl, gskProxyUrl } from './shared'
  * http(s):// proxies are forwarded; undici's env proxy cannot speak SOCKS.
  */
 export function gskChildEnv(base: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
-  const env: NodeJS.ProcessEnv = { ...base, ELECTRON_RUN_AS_NODE: '1' }
+  const env: NodeJS.ProcessEnv = {
+    ...base,
+    ELECTRON_RUN_AS_NODE: '1',
+    // The CLI otherwise spawns `npm install -g @genspark/cli` on the user's machine. It ships
+    // inside the app and is versioned with it, so a global install is never the right update.
+    GSK_NO_AUTO_UPDATE: '1',
+  }
   const proxy = [
     gskProxyUrl(),
     base.HTTPS_PROXY,

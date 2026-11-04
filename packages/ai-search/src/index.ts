@@ -80,7 +80,7 @@ function normalizeOptions(opts: boolean | SearchOptions | undefined): Required<S
   }
 }
 
-type WebSearchResponse = {
+export type WebSearchResponse = {
   results: WebSearchResult[]
   answer?: string
   method: string

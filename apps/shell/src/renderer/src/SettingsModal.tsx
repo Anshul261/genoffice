@@ -1593,6 +1593,21 @@ function AiMediaPane({
       <div className="set-field-desc set-ai-note">{t('setAiSharedKeyHint')}</div>
       <section>
         {subhead('search', t('setAiCapSearch'))}
+        <div className="set-field">
+          <div className="set-field-text">
+            <div className="set-field-stack">
+              <div className="set-field-label">{t('setWebSearch')}</div>
+              <div className="set-field-desc">{t('setWebSearchDesc')}</div>
+            </div>
+          </div>
+          <button
+            className="set-switch"
+            role="switch"
+            aria-checked={search.enabled !== false}
+            aria-label={t('setWebSearch')}
+            onClick={() => setSearch({ ...search, enabled: search.enabled === false })}
+          />
+        </div>
         {providerRow(t('setAiCapSearch'), search.provider, searchCatalog, (v) =>
           setSearch({ ...search, provider: v as AiSearchSettings['provider'] }),
         )}
@@ -1807,6 +1822,7 @@ export function SettingsModal({
   const [theme, setTheme] = useState<UiTheme>('system')
   const [docTheme, setDocTheme] = useState<DocTheme>('follow')
   const [saveDir, setSaveDir] = useState('')
+  const [spellcheckOn, setSpellcheckOn] = useState(true)
   const [analyticsOn, setAnalyticsOn] = useState(true)
   const [analyticsSaving, setAnalyticsSaving] = useState(false)
   const [autoSaveOn, setAutoSaveOn] = useState(false)
@@ -1835,6 +1851,9 @@ export function SettingsModal({
     })
     void window.aiOffice.getDefaultSaveDir?.().then((dir) => {
       if (alive && dir) setSaveDir(dir)
+    })
+    void window.aiOffice.getSpellcheckEnabled?.().then((on) => {
+      if (alive) setSpellcheckOn(on !== false)
     })
     void window.aiOffice.getAnalyticsEnabled?.().then((on) => {
       if (alive) setAnalyticsOn(on !== false)
@@ -2322,6 +2341,29 @@ export function SettingsModal({
                       const next = !tabSleepOn
                       setTabSleepOn(next)
                       void window.aiOffice.setTabSleepEnabled?.(next).catch(() => {})
+                    }}
+                  />
+                </div>
+                <div className="set-field">
+                  <div className="set-field-text">
+                    <div className="set-field-stack">
+                      <div className="set-field-label">{t('setSpellcheck')}</div>
+                      <div className="set-field-desc">{t('setSpellcheckDesc')}</div>
+                    </div>
+                  </div>
+                  <button
+                    className="set-switch"
+                    role="switch"
+                    aria-checked={spellcheckOn}
+                    aria-label={t('setSpellcheck')}
+                    onClick={() => {
+                      const next = !spellcheckOn
+                      void window.aiOffice
+                        .setSpellcheckEnabled(next)
+                        .then((persisted) => {
+                          if (persisted) setSpellcheckOn(next)
+                        })
+                        .catch(() => {})
                     }}
                   />
                 </div>
